@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+
+    <title>Hello, world!</title>
+    <style>
+        .slick-slider .slick-prev,
+        .slick-slider .slick-next {
+            z-index: 100;
+            font-size: 2.5em;
+            height: 40px;
+            width: 40px;
+            margin-top: -20px;
+            color: #B7B7B7;
+            position: absolute;
+            top: 50%;
+            text-align: center;
+            color: #000;
+            opacity: .3;
+            transition: opacity .25s;
+            cursor: pointer;
+        }
+
+        .slick-slider .slick-prev:hover,
+        .slick-slider .slick-next:hover {
+            opacity: .65;
+        }
+
+        .slick-slider .slick-prev {
+            left: 0;
+        }
+
+        .slick-slider .slick-next {
+            right: 0;
+        }
+
+        #detail .product-images {
+            width: 100%;
+            margin: 0 auto;
+            border: 1px solid #eee;
+        }
+
+        #detail .product-images li,
+        #detail .product-images figure,
+        #detail .product-images a,
+        #detail .product-images img {
+            display: block;
+            outline: none;
+            border: none;
+        }
+
+        #detail .product-images .main-img-slider figure {
+            margin: 0 auto;
+            padding: 0 2em;
+        }
+
+        #detail .product-images .main-img-slider figure a {
+            cursor: pointer;
+            cursor: -webkit-zoom-in;
+            cursor: -moz-zoom-in;
+            cursor: zoom-in;
+        }
+
+        #detail .product-images .main-img-slider figure a img {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        #detail .product-images .thumb-nav {
+            margin: 0 auto;
+            padding: 20px 10px;
+            max-width: 600px;
+        }
+
+        #detail .product-images .thumb-nav.slick-slider .slick-prev,
+        #detail .product-images .thumb-nav.slick-slider .slick-next {
+            font-size: 1.2em;
+            height: 20px;
+            width: 26px;
+            margin-top: -10px;
+        }
+
+        #detail .product-images .thumb-nav.slick-slider .slick-prev {
+            margin-left: -30px;
+        }
+
+        #detail .product-images .thumb-nav.slick-slider .slick-next {
+            margin-right: -30px;
+        }
+
+        #detail .product-images .thumb-nav li {
+            display: block;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        #detail .product-images .thumb-nav li img {
+            display: block;
+            width: 100%;
+            max-width: 75px;
+            margin: 0 auto;
+            border: 2px solid transparent;
+            -webkit-transition: border-color .25s;
+            -ms-transition: border-color .25s;
+            -moz-transition: border-color .25s;
+            transition: border-color .25s;
+        }
+
+        #detail .product-images .thumb-nav li:hover,
+        #detail .product-images .thumb-nav li:focus {
+            border-color: #999;
+        }
+
+        #detail .product-images .thumb-nav li.slick-current img {
+            border-color: #d12f81;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <section id="detail">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <!-- Product Images & Alternates -->
+                    <div class="product-images demo-gallery">
+                        <!-- Begin Product Images Slider -->
+                        <div class="main-img-slider">
+                            <a data-fancybox="gallery" href="http://via.placeholder.com/1920x1280"><img
+                                    src="https://apod.nasa.gov/apod/image/2110/LucyLaunchB_Kraus_2048.jpg"
+                                    class="img-fluid"></a>
+                            <a data-fancybox="gallery" href="http://via.placeholder.com/1920x1280"><img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp4Y0sh7phaJvJZ0CdI7pMpUdej8xqafNSIKKCovUp&s"
+                                    class="img-fluid"></a>
+                            <a data-fancybox="gallery" href="http://via.placeholder.com/1920x1280"><img
+                                    src="https://i.guim.co.uk/img/media/63de40b99577af9b867a9c57555a432632ba760b/0_266_5616_3370/master/5616.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=93458bbe24b9f88451ea08197888ab8e"
+                                    class="img-fluid"></a>
+                            <a data-fancybox="gallery" href="http://via.placeholder.com/1920x1280"><img
+                                    src="https://images.pexels.com/photos/1133957/pexels-photo-1133957.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                                    class="img-fluid"></a>
+                            <a data-fancybox="gallery" href="http://via.placeholder.com/1920x1280"><img
+                                    src="https://static.independent.co.uk/2021/12/07/10/PRI213893584.jpg?width=1200"
+                                    class="img-fluid"></a>
+                            <a data-fancybox="gallery" href="http://via.placeholder.com/1920x1280"><img
+                                    src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg"
+                                    class="img-fluid"></a>
+                        </div>
+                        <!-- End Product Images Slider -->
+
+                        <!-- Begin product thumb nav -->
+                        <ul class="thumb-nav">
+                            <li><img
+                                    src="https://media.istockphoto.com/photos/hot-air-balloons-flying-over-the-botan-canyon-in-turkey-picture-id1297349747?b=1&k=20&m=1297349747&s=170667a&w=0&h=oH31fJty_4xWl_JQ4OIQWZKP8C6ji9Mz7L4XmEnbqRU=">
+                            </li>
+                            <li><img
+                                    src="https://media.wired.com/photos/598e35fb99d76447c4eb1f28/master/pass/phonepicutres-TA.jpg">
+                            </li>
+                            <li><img
+                                    src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg">
+                            </li>
+                            <li><img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"></li>
+                            <li><img
+                                    src="https://expresstricks.com/wp-content/uploads/2019/04/comments-for-beautiful-pictures.jpg">
+                            </li>
+                        </ul>
+                        <!-- End product thumb nav -->
+                    </div>
+                    <!-- End Product Images & Alternates -->
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <script>
+        /*--------------*/
+
+
+$();
+        // Main/Product image slider for product page
+        $('#detail.main-img-slider').slick({
+
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            arrows: true,
+            // fade:true,
+            vertical: true,
+            autoplaySpeed: 4000,
+            speed: 300,
+            lazyLoad: 'ondemand',
+            asNavFor: '.thumb-nav',
+            prevArrow: '<div class="slick-prev"><i class="i-prev"></i><span class="sr-only sr-only-focusable">Previous</span></div>',
+            nextArrow: '<div class="slick-next"><i class="i-next"></i><span class="sr-only sr-only-focusable">Next</span></div>'
+        });
+        // Thumbnail/alternates slider for product page
+        $('.thumb-nav').slick({
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            infinite: true,
+            centerPadding: '0px',
+            asNavFor: '.main-img-slider',
+            dots: false,
+            centerMode: false,
+            draggable: true,
+            vertical: true,
+            verticalSwiping: true,
+            speed: 200,
+            focusOnSelect: true,
+            prevArrow: '<div class="slick-prev"><i class="i-prev"></i><span class="sr-only sr-only-focusable">Previous</span></div>',
+            nextArrow: '<div class="slick-next"><i class="i-next"></i><span class="sr-only sr-only-focusable">Next</span></div>'
+        });
+
+
+        //keeps thumbnails active when changing main image, via mouse/touch drag/swipe
+        $('.main-img-slider').on('afterChange', function (event, slick, currentSlide, nextSlide) {
+            //remove all active class
+            $('.thumb-nav .slick-slide').removeClass('slick-current');
+            //set active class for current slide
+            $('.thumb-nav .slick-slide:not(.slick-cloned)').eq(currentSlide).addClass('slick-current');
+        });
+    </script>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

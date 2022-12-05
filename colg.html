@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>picture to click</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            border: solid 4px green;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /*Left + Right Triggers*/
+
+        .trig {
+            width: 25px;
+            height: 35px;
+            background-color: beige;
+            border: solid 2px;
+            position: absolute;
+            border-radius: 3px;
+            top: 100px;
+        }
+
+        .trig:hover {
+            cursor: pointer;
+        }
+
+        .l-trig {
+            left: -35px;
+        }
+
+        .r-trig {
+            right: -35px;
+        }
+
+        .l-trig span:nth-child(1) {
+            background-color: red;
+            position: absolute;
+            width: 5px;
+            height: 65%;
+            transform: rotate(45deg);
+            top: 0;
+            left: 7px;
+            border-radius: 3px;
+        }
+
+        .l-trig span:nth-child(2) {
+            background-color: red;
+            position: absolute;
+            width: 5px;
+            height: 65%;
+            transform: rotate(-45deg);
+            bottom: 0;
+            left: 7px;
+            border-radius: 3px;
+        }
+
+        .r-trig span:nth-child(1) {
+            background-color: red;
+            position: absolute;
+            width: 5px;
+            height: 65%;
+            transform: rotate(-45deg);
+            top: 0;
+            right: 7px;
+            border-radius: 3px;
+        }
+
+        .r-trig span:nth-child(2) {
+            background-color: red;
+            position: absolute;
+            width: 5px;
+            height: 65%;
+            transform: rotate(45deg);
+            bottom: 0;
+            right: 7px;
+            border-radius: 3px;
+        }
+
+        main {
+            width: 250px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            position: relative;
+            background-color: lightgrey;
+            border-radius: 5px;
+        }
+
+        #display_img {
+            position: absolute;
+            top: 0;
+            border: solid 2px;
+            width: 90px;
+            height: 135px;
+            margin-top: 5px;
+        }
+
+        .gal_img {
+            width: 35px;
+            height: 50px;
+            border: solid 2px;
+            position: relative;
+            bottom: 0px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .gal_img:hover {
+            cursor: pointer;
+        }
+
+        @media only screen and (min-width: 768px) {
+            main {
+                width: 500px;
+                height: 400px;
+                display: flex;
+                background-color: lightgrey;
+                justify-content: center;
+                align-items: flex-end;
+                position: relative;
+            }
+
+            #display_img {
+                position: absolute;
+                top: 0;
+                border: solid 2px;
+                width: 180px;
+                height: 270px;
+            }
+
+            .gal_img {
+                width: 70px;
+                height: 100px;
+                position: relative;
+                bottom: 10px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            .gal_img:hover {
+                cursor: pointer;
+            }
+
+            .trig {
+                top: 230px;
+            }
+
+            .trig:hover {
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="trig l-trig" id="left">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="trig r-trig" id="right">
+            <span></span>
+            <span></span>
+        </div>
+
+        <img src="" alt="" id="display_img">
+
+        <img src="" alt="" id="0" class="gal_img">
+        <img src="" alt="" id="1" class="gal_img">
+        <img src="" alt="" id="2" class="gal_img">
+    </main>
+    <script>
+        let i = 0;
+        //right arrow
+        const right = document.getElementById("right");
+        //left arrow
+        const left = document.getElementById("left");
+
+        //get gallery img element
+        let gal_img = document.getElementsByClassName("gal_img");
+
+        //get display img element
+        let dis_img = document.getElementById("display_img");
+        //array of images
+        let img_arr = [
+            {
+                id: 0,
+                image:
+                    "https://media.istockphoto.com/photos/spooky-old-rusty-chains-hanging-vertically-and-casting-shadows-on-a-picture-id1338726447?b=1&k=20&m=1338726447&s=170667a&w=0&h=8LYqgF4Vqe07VRtlJClOI9ibQMRaOqCOh28VMJTzfcQ="
+            },
+            {
+                id: 1,
+                image:
+                    "https://images.unsplash.com/photo-1614357235247-99fabbee67f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=400"
+            },
+            {
+                id: 2,
+                image:
+                    "https://images.unsplash.com/photo-1613557029019-e536807463dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=400"
+            }
+        ];
+
+        let arr_length = img_arr.length;
+
+        (function bindImg() {
+            display_img.src = img_arr[0].image;
+            for (var i = 0; i < img_arr.length; i++) {
+                console.log(i);
+                console.log("gallery index " + i + " ^^^^^^^");
+                gal_img[i].src = img_arr[i].image;
+            }
+        })();
+
+        (function galImgClick() {
+            for (let item of gal_img) {
+                console.log(item);
+                console.log("gallery image item " + item.id + " ^^^^^^^");
+                item.onclick = () => {
+                    display_img.src = item.src;
+                    console.log(item.id);
+                    i = item.id;
+                };
+            }
+        })();
+
+        (function rightClick() {
+            right.onclick = () => {
+                i++;
+                console.log(i);
+                if (i > arr_length - 1) {
+                    i = 0;
+                }
+                console.log(img_arr[i]);
+                display_img.src = img_arr[i].image;
+            };
+        })();
+
+        (function leftClick() {
+            left.onclick = () => {
+                i--;
+                console.log(i);
+                if (i < 0) {
+                    i = arr_length - 1;
+                }
+                console.log(img_arr[i]);
+                display_img.src = img_arr[i].image;
+        
+            };
+        })();
+        
+    </script>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
